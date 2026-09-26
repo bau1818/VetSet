@@ -25,16 +25,11 @@ import { RouteMap, type MapRoute } from '../components/RouteMap';
 import { Avatar, Badge, Button, Card, CardHeader, EmptyState, LinkButton, PageHeader, Progress, Stat } from '../components/ui';
 import { toggleTask } from '../data/actions';
 import { buildDayRoute, pointOf, useDayRoutes } from '../data/planning';
-import { byId, clientName, invoiceBalance, petNames } from '../data/selectors';
+import { byId, clientName, invoiceBalance, ownerOf, petNames } from '../data/selectors';
 import { useData } from '../data/store';
 import { useUi } from '../data/ui';
 import { money, miles as fmtMiles, plural } from '../lib/format';
 import { fmtDate, fmtDuration, fmtTime, fmtWindow, nowMinutes, relDay, shiftDate, todayStr } from '../lib/time';
-
-const greeting = () => {
-  const h = new Date().getHours();
-  return h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : 'Good evening';
-};
 
 export function Dashboard() {
   const s = useData();
@@ -43,7 +38,7 @@ export function Dashboard() {
   const today = todayStr();
   const routes = useDayRoutes(today);
   const [addingClient, setAddingClient] = useState(false);
-  const office = s.staff.find((x) => x.role === 'office');
+  const owner = ownerOf(s);
 
   const kpis = useMemo(() => {
     const todays = routes.flatMap((r) => r.appointments);
@@ -136,7 +131,7 @@ export function Dashboard() {
   return (
     <div className="mx-auto max-w-7xl">
       <PageHeader
-        title={`${greeting()}, ${office?.name.split(' ')[0] ?? 'there'}`}
+        title={`Hi, ${owner?.name ?? 'there'}`}
         subtitle={`${fmtDate(today, 'EEEE, MMMM d')} · ${s.settings.businessName}`}
         actions={
           <>

@@ -23,7 +23,7 @@ import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { resetDemoData, useData } from '../data/store';
 import { useUi, type Role } from '../data/ui';
-import { byId, clientName, searchClients } from '../data/selectors';
+import { byId, clientName, ownerOf, searchClients } from '../data/selectors';
 import { useTravelStore } from '../lib/travel';
 import { fmtDate, todayStr } from '../lib/time';
 import { AppointmentDrawer } from './AppointmentDrawer';
@@ -177,7 +177,7 @@ function RoleSwitcher() {
     return () => document.removeEventListener('mousedown', h);
   }, []);
   const team = byId(s.teams, actingTeamId) ?? s.teams[0];
-  const person = role === 'doctor' ? byId(s.staff, team?.doctorId) : role === 'driver' ? byId(s.staff, team?.driverId) : s.staff.find((x) => x.role === 'office');
+  const person = role === 'doctor' ? byId(s.staff, team?.doctorId) : role === 'driver' ? byId(s.staff, team?.driverId) : ownerOf(s);
 
   const choose = (r: Role, teamId?: string) => {
     setRole(r);
@@ -197,7 +197,7 @@ function RoleSwitcher() {
         <span className="hidden leading-tight sm:block">
           <span className="block text-xs font-semibold text-slate-800">{person?.name ?? 'Office'}</span>
           <span className="block text-[11px] text-slate-500">
-            {ROLE_LABEL[role]} view{role !== 'office' && team ? ` · ${team.name}` : ''}
+            {role === 'office' ? 'Owner · office view' : `${ROLE_LABEL[role]} view${team ? ` · ${team.name}` : ''}`}
           </span>
         </span>
         <ChevronDown className="size-4 text-slate-400" />
@@ -205,7 +205,7 @@ function RoleSwitcher() {
       {open && (
         <div className="absolute right-0 z-50 mt-2 w-72 rounded-xl border border-slate-200 bg-white p-1.5 shadow-xl">
           <p className="px-2.5 pt-1.5 pb-1 text-[11px] font-semibold tracking-wider text-slate-400 uppercase">Switch view (demo)</p>
-          <RoleOption active={role === 'office'} onClick={() => choose('office')} title="Office manager" sub="Scheduling, CRM, billing, reports" icon={LayoutDashboard} />
+          <RoleOption active={role === 'office'} onClick={() => choose('office')} title={`${ownerOf(s)?.name ?? 'Owner'} · Owner`} sub="Office view: scheduling, CRM, billing, reports" icon={LayoutDashboard} />
           {s.teams.map((t) => (
             <div key={t.id}>
               <RoleOption active={role === 'doctor' && actingTeamId === t.id} onClick={() => choose('doctor', t.id)} title={byId(s.staff, t.doctorId)?.name ?? 'Doctor'} sub={`Doctor · ${t.name}`} icon={Stethoscope} />
@@ -355,6 +355,48 @@ function Toasts() {
   );
 }
 
+/** Detects a newer deploy (the built bundle name changes) and offers a one-click reload. */
+function useNewVersion() {
+  const [available, setAvailable] = useState(false);
+  useEffect(() => {
+    const current = document.querySelector<HTMLScriptElement>('script[type="module"][src*="/assets/index-"]')?.getAttribute('src');
+    if (!current) return; // dev server
+    const check = async () => {
+      try {
+        const html = await fetch('/', { cache: 'no-store' }).then((r) => r.text());
+        const latest = html.match(/\/assets\/index-[^"']+\.js/)?.[0];
+        if (latest && latest !== current) setAvailable(true);
+      } catch {
+        /* offline: try again later */
+      }
+    };
+    const onVisible = () => document.visibilityState === 'visible' && void check();
+    const t = setInterval(check, 60_000);
+    window.addEventListener('focus', check);
+    document.addEventListener('visibilitychange', onVisible);
+    void check();
+    return () => {
+      clearInterval(t);
+      window.removeEventListener('focus', check);
+      document.removeEventListener('visibilitychange', onVisible);
+    };
+  }, []);
+  return available;
+}
+
+function UpdateBanner() {
+  const available = useNewVersion();
+  if (!available) return null;
+  return (
+    <div className="no-print flex flex-wrap items-center justify-center gap-x-3 gap-y-1 bg-brand-700 px-4 py-2 text-center text-sm text-white">
+      <span>A new version of VetSet Manager is available.</span>
+      <button className="rounded-md bg-white/20 px-2.5 py-1 font-semibold hover:bg-white/30" onClick={() => window.location.reload()}>
+        Reload now
+      </button>
+    </div>
+  );
+}
+
 function StaleDemoBanner() {
   const seededOn = useData((s) => s.settings.seededOn);
   const [hidden, setHidden] = useState(false);
@@ -446,6 +488,7 @@ export function Layout({ children }: { children?: ReactNode }) {
           </div>
         </div>
       </header>
+      <UpdateBanner />
       <StaleDemoBanner />
 
       <main className="px-4 pt-5 pb-28 sm:px-6 lg:pb-10">{children ?? <Outlet />}</main>

@@ -84,3 +84,6 @@ export const searchClients = (s: Pick<S, 'clients' | 'pets'>, q: string, limit =
   }
   return scored.sort((a, b) => b.score - a.score || a.c.lastName.localeCompare(b.c.lastName)).slice(0, limit);
 };
+
+/** The practice owner: the lead doctor (first unit's doctor). The office/owner view is theirs. */
+export const ownerOf = (s: Pick<S, 'teams' | 'staff'>) => byId(s.staff, s.teams[0]?.doctorId) ?? s.staff.find((x) => x.role === 'doctor');
