@@ -3,7 +3,7 @@
 Scheduling, route optimization and client management for **mobile veterinary practices** —
 the administrative side of the business (not medical records).
 
-**Live demo:** see the Vercel link in the repo description. Each visitor gets their own private
+**Live demo: https://vetset-manager.vercel.app** — each visitor gets their own private
 copy of a realistic demo practice (2 field units, ~50 households, 6 weeks of history, 2 weeks
 of bookings) stored in their browser, so friends can click around freely.
 
