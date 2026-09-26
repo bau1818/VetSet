@@ -1,0 +1,8 @@
+node_modules
+dist
+.vercel
+.env*
+!.env.example
+scripts/seed-log.txt
+.DS_Store
+tsconfig.tsbuildinfo

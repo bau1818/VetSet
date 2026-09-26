@@ -1,0 +1,418 @@
+[
+ {
+  "street": "Finley Mae Way",
+  "city": "Brushy Creek",
+  "state": "TX",
+  "zip": "78713",
+  "lat": 30.50208,
+  "lng": -97.746811
+ },
+ {
+  "street": "Varano Bend",
+  "city": "Round Rock",
+  "state": "TX",
+  "zip": "78665",
+  "lat": 30.587891,
+  "lng": -97.635136
+ },
+ {
+  "street": "West Parmer Lane",
+  "city": "Austin",
+  "state": "TX",
+  "zip": "78729",
+  "lat": 30.46731,
+  "lng": -97.761032
+ },
+ {
+  "street": "Elmwood Cove",
+  "city": "Cedar Park",
+  "state": "TX",
+  "zip": "78713",
+  "lat": 30.491842,
+  "lng": -97.833516
+ },
+ {
+  "street": "Bunkerhill Cove",
+  "city": "Brushy Creek",
+  "state": "TX",
+  "zip": "78713",
+  "lat": 30.514673,
+  "lng": -97.747082
+ },
+ {
+  "street": "Saunders Drive",
+  "city": "Round Rock",
+  "state": "TX",
+  "zip": "78664",
+  "lat": 30.534249,
+  "lng": -97.674228
+ },
+ {
+  "street": "North Lakeline Boulevard",
+  "city": "Cedar Park",
+  "state": "TX",
+  "zip": "78613",
+  "lat": 30.524093,
+  "lng": -97.854126
+ },
+ {
+  "street": "Brayton Park Drive",
+  "city": "Brushy Creek",
+  "state": "TX",
+  "zip": "78713",
+  "lat": 30.509598,
+  "lng": -97.747194
+ },
+ {
+  "street": "Hill Street",
+  "city": "Round Rock",
+  "state": "TX",
+  "zip": "78664",
+  "lat": 30.491008,
+  "lng": -97.615762
+ },
+ {
+  "street": "Nicosia Court",
+  "city": "Leander",
+  "state": "TX",
+  "zip": "78641",
+  "lat": 30.576611,
+  "lng": -97.819121
+ },
+ {
+  "street": "Tularosa Pass",
+  "city": "Austin",
+  "state": "TX",
+  "zip": "78726",
+  "lat": 30.430032,
+  "lng": -97.819761
+ },
+ {
+  "street": "East 3rd Street",
+  "city": "Georgetown",
+  "state": "TX",
+  "zip": "78626",
+  "lat": 30.641064,
+  "lng": -97.668355
+ },
+ {
+  "street": "Cordillera Drive",
+  "city": "Round Rock",
+  "state": "TX",
+  "zip": "78681",
+  "lat": 30.501578,
+  "lng": -97.737814
+ },
+ {
+  "street": "Yellow Sage Street",
+  "city": "Pflugerville",
+  "state": "TX",
+  "zip": "78660",
+  "lat": 30.452621,
+  "lng": -97.638512
+ },
+ {
+  "street": "Lakeway Drive",
+  "city": "Georgetown",
+  "state": "TX",
+  "zip": "78626",
+  "lat": 30.669096,
+  "lng": -97.680679
+ },
+ {
+  "street": "Los Vista Drive",
+  "city": "Leander",
+  "state": "TX",
+  "zip": "78646",
+  "lat": 30.557102,
+  "lng": -97.855776
+ },
+ {
+  "street": "Rearing Mare Pass",
+  "city": "Georgetown",
+  "state": "TX",
+  "zip": "78626",
+  "lat": 30.622286,
+  "lng": -97.638448
+ },
+ {
+  "street": "Avery Ranch Boulevard",
+  "city": "Brushy Creek",
+  "state": "TX",
+  "zip": "78713",
+  "lat": 30.503931,
+  "lng": -97.750126
+ },
+ {
+  "street": "Buffalo Pass",
+  "city": "Round Rock",
+  "state": "TX",
+  "zip": "78681",
+  "lat": 30.497329,
+  "lng": -97.683487
+ },
+ {
+  "street": "Hyson Crossing",
+  "city": "Pflugerville",
+  "state": "TX",
+  "zip": "78691",
+  "lat": 30.423516,
+  "lng": -97.637831
+ },
+ {
+  "street": "Sandstone Trail",
+  "city": "Austin",
+  "state": "TX",
+  "zip": "78726",
+  "lat": 30.452493,
+  "lng": -97.815951
+ },
+ {
+  "street": "East Riviera Drive",
+  "city": "Cedar Park",
+  "state": "TX",
+  "zip": "78613",
+  "lat": 30.481956,
+  "lng": -97.814033
+ },
+ {
+  "street": "Diner Drive",
+  "city": "Cedar Park",
+  "state": "TX",
+  "zip": "78613",
+  "lat": 30.51885,
+  "lng": -97.806789
+ },
+ {
+  "street": "Bagdad Road",
+  "city": "Cedar Park",
+  "state": "TX",
+  "zip": "78613",
+  "lat": 30.522716,
+  "lng": -97.842208
+ },
+ {
+  "street": "Splitrock Street",
+  "city": "Brushy Creek",
+  "state": "TX",
+  "zip": "78713",
+  "lat": 30.513597,
+  "lng": -97.734624
+ },
+ {
+  "street": "Vintage Drive",
+  "city": "Leander",
+  "state": "TX",
+  "zip": "78646",
+  "lat": 30.557597,
+  "lng": -97.82967
+ },
+ {
+  "street": "Karolyn Drive",
+  "city": "Round Rock",
+  "state": "TX",
+  "zip": "78680",
+  "lat": 30.521997,
+  "lng": -97.675246
+ },
+ {
+  "street": "Wagongap Drive",
+  "city": "Round Rock",
+  "state": "TX",
+  "zip": "78682",
+  "lat": 30.49149,
+  "lng": -97.68534
+ },
+ {
+  "street": "Glass Drive",
+  "city": "Leander",
+  "state": "TX",
+  "zip": "78646",
+  "lat": 30.562813,
+  "lng": -97.849507
+ },
+ {
+  "street": "Hanstrom Court",
+  "city": "Hutto",
+  "state": "TX",
+  "zip": "78634",
+  "lat": 30.532871,
+  "lng": -97.55115
+ },
+ {
+  "street": "Cotton Pickin Lane",
+  "city": "Cedar Park",
+  "state": "TX",
+  "zip": "78613",
+  "lat": 30.5268,
+  "lng": -97.830024
+ },
+ {
+  "street": "Championship Drive",
+  "city": "Liberty Hill",
+  "state": "TX",
+  "zip": "78642",
+  "lat": 30.66219,
+  "lng": -97.90693
+ },
+ {
+  "street": "Creek Ledge Place",
+  "city": "Round Rock",
+  "state": "TX",
+  "zip": "78664",
+  "lat": 30.513281,
+  "lng": -97.652232
+ },
+ {
+  "street": "Turnbow Trail",
+  "city": "Cedar Park",
+  "state": "TX",
+  "zip": "78613",
+  "lat": 30.518372,
+  "lng": -97.817429
+ },
+ {
+  "street": "Reprise Bend",
+  "city": "Round Rock",
+  "state": "TX",
+  "zip": "78781",
+  "lat": 30.522033,
+  "lng": -97.7192
+ },
+ {
+  "street": "Skyflower Drive",
+  "city": "Austin",
+  "state": "TX",
+  "zip": "78859",
+  "lat": 30.415785,
+  "lng": -97.775438
+ },
+ {
+  "street": "North Kings Canyon Drive",
+  "city": "Cedar Park",
+  "state": "TX",
+  "zip": "78613",
+  "lat": 30.512402,
+  "lng": -97.823258
+ },
+ {
+  "street": "West Live Oak Street",
+  "city": "Hutto",
+  "state": "TX",
+  "zip": "78634",
+  "lat": 30.545677,
+  "lng": -97.548306
+ },
+ {
+  "street": "Old Lampasas Trail",
+  "city": "Austin",
+  "state": "TX",
+  "zip": "78750",
+  "lat": 30.419856,
+  "lng": -97.800258
+ },
+ {
+  "street": "Scottsdale Drive",
+  "city": "Cedar Park",
+  "state": "TX",
+  "zip": "78613",
+  "lat": 30.545842,
+  "lng": -97.814371
+ },
+ {
+  "street": "Sherwood Forest",
+  "city": "Jollyville",
+  "state": "TX",
+  "zip": "78759",
+  "lat": 30.430806,
+  "lng": -97.774779
+ },
+ {
+  "street": "Ridgewood Drive",
+  "city": "Cedar Park",
+  "state": "TX",
+  "zip": "78613",
+  "lat": 30.502104,
+  "lng": -97.827383
+ },
+ {
+  "street": "Lake Creek Circle",
+  "city": "Round Rock",
+  "state": "TX",
+  "zip": "78680",
+  "lat": 30.507763,
+  "lng": -97.674333
+ },
+ {
+  "street": "Rountree Ranch Lane",
+  "city": "Avery Ranch",
+  "state": "TX",
+  "zip": "78613",
+  "lat": 30.494218,
+  "lng": -97.794244
+ },
+ {
+  "street": "Owl Court",
+  "city": "Round Rock",
+  "state": "TX",
+  "zip": "78781",
+  "lat": 30.517769,
+  "lng": -97.716538
+ },
+ {
+  "street": "O'Connor Drive",
+  "city": "Brushy Creek",
+  "state": "TX",
+  "zip": "78713",
+  "lat": 30.505732,
+  "lng": -97.737914
+ },
+ {
+  "street": "Water Oak Drive",
+  "city": "Cedar Park",
+  "state": "TX",
+  "zip": "78613",
+  "lat": 30.510801,
+  "lng": -97.804244
+ },
+ {
+  "street": "Lakeline Boulevard",
+  "city": "Avery Ranch",
+  "state": "TX",
+  "zip": "78717",
+  "lat": 30.483113,
+  "lng": -97.785611
+ },
+ {
+  "street": "Cascada Lane",
+  "city": "Brushy Creek",
+  "state": "TX",
+  "zip": "78681",
+  "lat": 30.547527,
+  "lng": -97.728622
+ },
+ {
+  "street": "Lynwood Gold Way",
+  "city": "Pflugerville",
+  "state": "TX",
+  "zip": "78691",
+  "lat": 30.422649,
+  "lng": -97.651499
+ },
+ {
+  "street": "Sunset Vista Road",
+  "city": "Georgetown",
+  "state": "TX",
+  "zip": "78628",
+  "lat": 30.643797,
+  "lng": -97.700412
+ },
+ {
+  "street": "Shea Drive",
+  "city": "Cedar Park",
+  "state": "TX",
+  "zip": "78713",
+  "lat": 30.493069,
+  "lng": -97.850146
+ }
+]
