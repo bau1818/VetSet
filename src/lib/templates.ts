@@ -7,11 +7,11 @@ export const MERGE_FIELDS: { key: string; label: string; sample: string }[] = [
   { key: 'window', label: 'Arrival window', sample: '9:30–11:30 AM' },
   { key: 'eta', label: 'ETA', sample: '10:15 AM' },
   { key: 'minutes', label: 'Minutes (away / late)', sample: '15' },
-  { key: 'doctor', label: 'Doctor', sample: 'Dr. Ruiz' },
+  { key: 'doctor', label: 'Doctor', sample: 'Dr. Johnson' },
   { key: 'service', label: 'Service', sample: 'Annual wellness exam' },
   { key: 'due_date', label: 'Due date', sample: 'Oct 12' },
   { key: 'balance', label: 'Balance due', sample: '$145' },
-  { key: 'business', label: 'Practice name', sample: 'VetSet Demo Practice' },
+  { key: 'business', label: 'Practice name', sample: 'Premier Home Vet Care' },
   { key: 'phone', label: 'Practice phone', sample: '(512) 555-0100' },
 ];
 

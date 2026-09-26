@@ -27,7 +27,7 @@ import { defaultTemplates } from '../lib/templates';
 import { daysBetween, shiftDate, toMin, toTime, weekday } from '../lib/time';
 import { servicesSubtotal, tripFeeFor, visitDuration } from '../lib/pricing';
 
-export const DATA_VERSION = 2;
+export const DATA_VERSION = 3;
 
 const FIRST = ['Jordan', 'Avery', 'Morgan', 'Taylor', 'Casey', 'Riley', 'Jamie', 'Quinn', 'Drew', 'Harper', 'Reese', 'Cameron', 'Rowan', 'Emerson', 'Hayden', 'Parker', 'Sydney', 'Blake', 'Dakota', 'Kendall', 'Logan', 'Peyton', 'Skyler', 'Elliot', 'Alex', 'Robin', 'Sage', 'Micah', 'Shawn', 'Jessie', 'Lee', 'Frankie', 'Marion', 'Dana', 'Kerry', 'Leslie', 'Carmen', 'Nico', 'Tatum', 'Arden', 'Remy', 'Ellis'];
 const LAST = ['Alvarez', 'Bennett', 'Carter', 'Delgado', 'Ellison', 'Foster', 'Garza', 'Hayes', 'Ingram', 'Jensen', 'Kaplan', 'Lopez', 'Mercer', 'Nguyen', 'Ortega', 'Pruitt', 'Quintero', 'Ramsey', 'Sandoval', 'Thornton', 'Underwood', 'Vasquez', 'Whitaker', 'Yates', 'Zamora', 'Beaumont', 'Castillo', 'Dunham', 'Espinoza', 'Fairbanks', 'Guerrero', 'Holloway', 'Iverson', 'Kowalski', 'Lindqvist', 'Montoya', 'Novak', 'Okafor', 'Park', 'Reyes', 'Salazar', 'Tran', 'Villareal', 'Walsh'];
@@ -87,9 +87,9 @@ export const seedServices = (): Service[] => [
 ];
 
 export const seedSettings = (today: DateStr): Settings => ({
-  businessName: 'VetSet Demo Practice',
+  businessName: 'Premier Home Vet Care',
   phone: '(512) 555-0100',
-  email: 'office@vetset-demo.example',
+  email: 'office@premierhomevet.example',
   windowMins: 120,
   bufferMins: 10,
   tripFeeZones: [
@@ -124,11 +124,11 @@ export function generateDemoData(today: DateStr, nowMins = 12 * 60): DataSnapsho
   const svc = Object.fromEntries(services.map((s) => [s.id, s]));
 
   const staff: Staff[] = [
-    { id: 'stf_ruiz', name: 'Dr. Elena Ruiz', role: 'doctor', phone: '(512) 555-0101', email: 'eruiz@vetset-demo.example', color: '#0f766e', active: true },
-    { id: 'stf_okafor', name: 'Dr. James Okafor', role: 'doctor', phone: '(512) 555-0102', email: 'jokafor@vetset-demo.example', color: '#4f46e5', active: true },
-    { id: 'stf_lee', name: 'Marcus Lee', role: 'driver', phone: '(512) 555-0103', email: 'mlee@vetset-demo.example', color: '#0891b2', active: true },
-    { id: 'stf_brooks', name: 'Kayla Brooks', role: 'tech', phone: '(512) 555-0104', email: 'kbrooks@vetset-demo.example', color: '#7c3aed', active: true },
-    { id: 'stf_shah', name: 'Priya Shah', role: 'office', phone: '(512) 555-0105', email: 'pshah@vetset-demo.example', color: '#b45309', active: true },
+    { id: 'stf_ruiz', name: 'Dr. Johnson', role: 'doctor', phone: '(512) 555-0101', email: 'djohnson@premierhomevet.example', color: '#0f766e', active: true },
+    { id: 'stf_okafor', name: 'Dr. James Okafor', role: 'doctor', phone: '(512) 555-0102', email: 'jokafor@premierhomevet.example', color: '#4f46e5', active: true },
+    { id: 'stf_lee', name: 'Marcus Lee', role: 'driver', phone: '(512) 555-0103', email: 'mlee@premierhomevet.example', color: '#0891b2', active: true },
+    { id: 'stf_brooks', name: 'Kayla Brooks', role: 'tech', phone: '(512) 555-0104', email: 'kbrooks@premierhomevet.example', color: '#7c3aed', active: true },
+    { id: 'stf_shah', name: 'Priya Shah', role: 'office', phone: '(512) 555-0105', email: 'pshah@premierhomevet.example', color: '#b45309', active: true },
   ];
 
   const teams: Team[] = [
