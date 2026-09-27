@@ -4,6 +4,7 @@ import { MapContainer, Marker, Polyline, TileLayer, Tooltip, useMap } from 'reac
 import clsx from 'clsx';
 import type { GeoPoint } from '../data/types';
 import { getRouteGeometry } from '../lib/travel';
+import { SHOWCASE } from '../showcase';
 
 export interface MapStop {
   id: string;
@@ -103,12 +104,12 @@ export function RouteMap({
 
   return (
     <div className={clsx('relative isolate overflow-hidden rounded-xl border border-slate-200 bg-slate-100', className)}>
-      <MapContainer center={[center.lat, center.lng]} zoom={11} scrollWheelZoom className="h-full w-full" zoomControl>
+      <MapContainer center={[center.lat, center.lng]} zoom={11} scrollWheelZoom className="h-full w-full" zoomControl fadeAnimation={!SHOWCASE}>
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
-          maxZoom={19}
-          className="vs-tiles"
+          attribution={SHOWCASE ? '&copy; Esri, HERE, Garmin, OpenStreetMap' : '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}
+          url={SHOWCASE ? 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}' : 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'}
+          maxZoom={SHOWCASE ? 16 : 19}
+          className={SHOWCASE ? 'vs-tiles-showcase' : 'vs-tiles'}
         />
         <FitBounds points={allPoints} fitKey={fitKey} />
         {routes.map((r) => (

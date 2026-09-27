@@ -6,3 +6,8 @@ dist
 scripts/seed-log.txt
 .DS_Store
 tsconfig.tsbuildinfo
+dist-showcase
+showcase/tools/node_modules
+showcase/tools/cache
+showcase/tools/work
+showcase/tools/out

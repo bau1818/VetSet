@@ -26,6 +26,7 @@ import { optimize, simulate, windowAround, type DayConfig, type StopInput } from
 import { defaultTemplates } from '../lib/templates';
 import { daysBetween, shiftDate, toMin, toTime, weekday } from '../lib/time';
 import { servicesSubtotal, tripFeeFor, visitDuration } from '../lib/pricing';
+import { AREA_CODE, SHOWCASE, showcaseStreet, showcaseTown } from '../showcase';
 
 export const DATA_VERSION = 3;
 
@@ -55,20 +56,24 @@ const ACCESS = [
 const NOTES = [
   'Prefers morning visits. Works from home.',
   'Very engaged owner — likes a call after bloodwork is scheduled.',
-  'Adopted both cats from Williamson County shelter.',
+  'Adopted both cats from the county shelter.',
   'Pays at visit by card. Asked about multi-pet discounts.',
   'Referred two neighbors. Send a thank-you card.',
   'Spanish-speaking household; Carmen (daughter) coordinates visits.',
   '',
   '',
   'Grandfathered trip fee from 2024 promo.',
-  'Moving to Georgetown in December — update address.',
+  'Moving across town in December — update address.',
 ];
 const REFERRAL = ['Google search', 'Nextdoor', 'Friend or family', 'Facebook', 'Groomer referral', 'Shelter adoption', 'Instagram', 'Neighbor', 'Previous clinic referral'];
 const TAG_POOL = ['VIP', 'Fear Free', 'Multi-pet', 'Barn cats', 'Senior pets', 'Prefers AM', 'Pays at visit', 'Neighborhood referrer'];
 
-export const HQ = { line1: '1400 Post Trail', city: 'Cedar Park', state: 'TX', zip: '78613', lat: 30.493012, lng: -97.790509 };
-export const EAST_BASE = { line1: '210 E Milam Ave', city: 'Round Rock', state: 'TX', zip: '78664', lat: 30.511889, lng: -97.679969 };
+export const HQ = SHOWCASE
+  ? { line1: '1400 Harvest Loop', city: 'Cedarbrook', state: '', zip: '', lat: 30.493012, lng: -97.790509 }
+  : { line1: '1400 Post Trail', city: 'Cedar Park', state: 'TX', zip: '78613', lat: 30.493012, lng: -97.790509 };
+export const EAST_BASE = SHOWCASE
+  ? { line1: '210 Meadowlark Ave', city: 'Stonebridge', state: '', zip: '', lat: 30.511889, lng: -97.679969 }
+  : { line1: '210 E Milam Ave', city: 'Round Rock', state: 'TX', zip: '78664', lat: 30.511889, lng: -97.679969 };
 
 export const seedServices = (): Service[] => [
   { id: 'svc_wellness', name: 'Wellness exam', category: 'wellness', durationMins: 40, extraPetMins: 20, price: 85, recallMonths: 12, active: true },
@@ -88,7 +93,7 @@ export const seedServices = (): Service[] => [
 
 export const seedSettings = (today: DateStr): Settings => ({
   businessName: 'Premier Home Vet Care',
-  phone: '(512) 555-0100',
+  phone: `(${AREA_CODE}) 555-0100`,
   email: 'office@premierhomevet.example',
   windowMins: 120,
   bufferMins: 10,
@@ -124,11 +129,11 @@ export function generateDemoData(today: DateStr, nowMins = 12 * 60): DataSnapsho
   const svc = Object.fromEntries(services.map((s) => [s.id, s]));
 
   const staff: Staff[] = [
-    { id: 'stf_ruiz', name: 'Dr. Johnson', role: 'doctor', phone: '(512) 555-0101', email: 'djohnson@premierhomevet.example', color: '#0f766e', active: true },
-    { id: 'stf_okafor', name: 'Dr. James Okafor', role: 'doctor', phone: '(512) 555-0102', email: 'jokafor@premierhomevet.example', color: '#4f46e5', active: true },
-    { id: 'stf_lee', name: 'Marcus Lee', role: 'driver', phone: '(512) 555-0103', email: 'mlee@premierhomevet.example', color: '#0891b2', active: true },
-    { id: 'stf_brooks', name: 'Kayla Brooks', role: 'tech', phone: '(512) 555-0104', email: 'kbrooks@premierhomevet.example', color: '#7c3aed', active: true },
-    { id: 'stf_shah', name: 'Priya Shah', role: 'office', phone: '(512) 555-0105', email: 'pshah@premierhomevet.example', color: '#b45309', active: true },
+    { id: 'stf_ruiz', name: 'Dr. Johnson', role: 'doctor', phone: `(${AREA_CODE}) 555-0101`, email: 'djohnson@premierhomevet.example', color: '#0f766e', active: true },
+    { id: 'stf_okafor', name: 'Dr. James Okafor', role: 'doctor', phone: `(${AREA_CODE}) 555-0102`, email: 'jokafor@premierhomevet.example', color: '#4f46e5', active: true },
+    { id: 'stf_lee', name: 'Marcus Lee', role: 'driver', phone: `(${AREA_CODE}) 555-0103`, email: 'mlee@premierhomevet.example', color: '#0891b2', active: true },
+    { id: 'stf_brooks', name: 'Kayla Brooks', role: 'tech', phone: `(${AREA_CODE}) 555-0104`, email: 'kbrooks@premierhomevet.example', color: '#7c3aed', active: true },
+    { id: 'stf_shah', name: 'Priya Shah', role: 'office', phone: `(${AREA_CODE}) 555-0105`, email: 'pshah@premierhomevet.example', color: '#b45309', active: true },
   ];
 
   const teams: Team[] = [
@@ -163,10 +168,12 @@ export function generateDemoData(today: DateStr, nowMins = 12 * 60): DataSnapsho
       id,
       firstName: first,
       lastName: last,
-      phone: `(512) 555-01${String(10 + i).padStart(2, '0')}`,
+      phone: `(${AREA_CODE}) 555-01${String(10 + i).padStart(2, '0')}`,
       email: `${first}.${last}`.toLowerCase() + '@example.com',
       preferredContact: pick(['sms', 'sms', 'sms', 'call', 'email'] as const),
-      address: { line1: `${int(1, 39) * 100 + int(1, 98)} ${pl.street}`, city: pl.city, state: pl.state, zip: pl.zip, lat: pl.lat, lng: pl.lng },
+      address: SHOWCASE
+        ? { line1: `${int(1, 39) * 100 + int(1, 98)} ${showcaseStreet(i)}`, city: showcaseTown(pl.city), state: '', zip: '', lat: pl.lat, lng: pl.lng }
+        : { line1: `${int(1, 39) * 100 + int(1, 98)} ${pl.street}`, city: pl.city, state: pl.state, zip: pl.zip, lat: pl.lat, lng: pl.lng },
       accessNotes: pick(ACCESS),
       tags,
       referralSource: status === 'lead' ? 'Website booking request' : pick(REFERRAL),
@@ -408,7 +415,7 @@ export function generateDemoData(today: DateStr, nowMins = 12 * 60): DataSnapsho
       kept.forEach((a) => {
         booked.add(a.clientId);
         const r = rnd();
-        a.status = d === 0 ? 'confirmed' : d === 1 ? (r < 0.55 ? 'confirmed' : 'scheduled') : r < 0.3 ? 'confirmed' : 'scheduled';
+        a.status = d === 0 ? 'confirmed' : d === 1 ? (r < 0.8 ? 'confirmed' : 'scheduled') : d === 2 ? (r < 0.55 ? 'confirmed' : 'scheduled') : r < 0.3 ? 'confirmed' : 'scheduled';
         if (a.status === 'confirmed') a.confirmedAt = iso(shiftDate(date, -2), '16:20');
         if (d === 0) {
           const idx = order.findIndex((x) => x.id === a.id);

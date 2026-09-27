@@ -68,6 +68,9 @@ body {
   0% { box-shadow: 0 0 0 0 rgb(245 158 11 / 0.6); }
   100% { box-shadow: 0 0 0 14px rgb(245 158 11 / 0); }
 }
+.vs-tiles-showcase {
+  filter: contrast(1.4) brightness(0.96);
+}
 .vs-tiles {
   filter: saturate(0.55) contrast(0.95) brightness(1.03);
 }

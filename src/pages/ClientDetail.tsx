@@ -85,10 +85,13 @@ export function ClientDetail() {
                 <MapPin className="mt-0.5 size-4 shrink-0 text-slate-400" /> {fmtAddress(c.address, true)}
                 {!geo && <Badge tone="amber">Not located</Badge>}
               </p>
-              <p className="flex items-center gap-2 text-slate-700">
-                <Phone className="size-4 text-slate-400" /> {c.phone}
-                <span className="text-slate-300">·</span>
-                <Mail className="size-4 text-slate-400" /> {c.email || '—'}
+              <p className="flex flex-wrap items-center gap-x-5 gap-y-2 text-slate-700">
+                <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                  <Phone className="size-4 text-slate-400" /> {c.phone}
+                </span>
+                <span className="inline-flex min-w-0 items-center gap-2 break-all">
+                  <Mail className="size-4 shrink-0 text-slate-400" /> {c.email || '—'}
+                </span>
               </p>
               {c.accessNotes && (
                 <p className="flex items-start gap-2 rounded-lg bg-amber-50 px-3 py-2 text-amber-900">

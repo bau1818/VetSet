@@ -198,7 +198,7 @@ export function Stat({ label, value, sub, icon: Icon, tone = 'brand', onClick }:
       <div className="min-w-0">
         <p className="text-xs font-medium text-slate-500">{label}</p>
         <p className="tabular mt-0.5 text-xl font-semibold text-slate-900">{value}</p>
-        {sub && <p className="mt-0.5 truncate text-xs text-slate-500">{sub}</p>}
+        {sub && <p className="mt-0.5 text-xs leading-snug text-slate-500">{sub}</p>}
       </div>
     </Comp>
   );

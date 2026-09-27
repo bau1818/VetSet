@@ -12,7 +12,7 @@ export const MERGE_FIELDS: { key: string; label: string; sample: string }[] = [
   { key: 'due_date', label: 'Due date', sample: 'Oct 12' },
   { key: 'balance', label: 'Balance due', sample: '$145' },
   { key: 'business', label: 'Practice name', sample: 'Premier Home Vet Care' },
-  { key: 'phone', label: 'Practice phone', sample: '(512) 555-0100' },
+  { key: 'phone', label: 'Practice phone', sample: '(555) 555-0100' },
 ];
 
 export const fillTemplate = (body: string, vars: Record<string, string | number | undefined>) =>

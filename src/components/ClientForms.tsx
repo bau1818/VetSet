@@ -73,7 +73,7 @@ export function ClientFormModal({ open, onClose, client, onSaved }: { open: bool
           <Input value={c.lastName} onChange={(e) => set('lastName', e.target.value)} />
         </Field>
         <Field label="Mobile phone">
-          <Input value={c.phone} inputMode="tel" placeholder="(512) 555-0123" onChange={(e) => set('phone', formatPhone(e.target.value))} />
+          <Input value={c.phone} inputMode="tel" placeholder="(555) 555-0123" onChange={(e) => set('phone', formatPhone(e.target.value))} />
         </Field>
         <Field label="Email">
           <Input value={c.email} type="email" onChange={(e) => set('email', e.target.value)} />

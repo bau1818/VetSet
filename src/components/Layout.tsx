@@ -278,7 +278,7 @@ function GlobalSearch() {
           if (e.key === 'Enter' && results[active]) go(results[active].c.id);
           if (e.key === 'Escape') inputRef.current?.blur();
         }}
-        placeholder="Search clients, pets, phone…"
+        placeholder={typeof window !== 'undefined' && window.innerWidth < 640 ? 'Search' : 'Search clients, pets, phone…'}
         className="h-9 w-full rounded-lg border border-slate-200 bg-slate-50 pr-12 pl-9 text-sm placeholder:text-slate-400 focus:border-brand-600 focus:bg-white focus:ring-2 focus:ring-brand-600/20 focus:outline-none"
       />
       <span className="pointer-events-none absolute top-1/2 right-2.5 hidden -translate-y-1/2 text-[11px] text-slate-400 md:block">⌘K</span>

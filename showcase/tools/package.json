@@ -1,0 +1,21 @@
+{
+  "name": "vetset-showcase-tools",
+  "private": true,
+  "type": "module",
+  "description": "Records the VetSet Manager tour video and screenshots from the showcase build (fictional towns, (555) numbers, unlabeled map).",
+  "scripts": {
+    "app": "cd ../.. && VITE_SHOWCASE=1 npx vite build --outDir dist-showcase",
+    "shots": "node record.mjs shots && node desktop.mjs",
+    "video": "node record.mjs video && node compose.mjs",
+    "assets": "node assets.mjs",
+    "verify": "node verify.mjs out/screenshots ../site ../site/img out/VetSet-Manager-Tour.mp4"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@fontsource/inter": "^5.2.8",
+    "@tesseract.js-data/eng": "^1.0.0",
+    "playwright-core": "^1.55.0",
+    "sharp": "^0.34.4",
+    "tesseract.js": "^6.0.1"
+  }
+}
